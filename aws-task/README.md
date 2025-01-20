@@ -91,7 +91,7 @@ aws lambda invoke \
 ```
 
 ## Output
-- [Creation proof of the Lambda function](create.png)
-- [Testing the Lambda function](test.png)
-- [Sample output](output.png)
-- [Updating the Lambda function](proof.png)
+- [Creation proof of the Lambda function](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/create.png)
+- [Testing the Lambda function](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/test.png)
+- [Sample output](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/output.png)
+- [Updating the Lambda function](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/proof.png)
