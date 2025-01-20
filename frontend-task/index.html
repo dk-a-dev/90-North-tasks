@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+
+        .main-content {
+            display: flex;
+            flex: 1;
+            padding-top: 60px;
+        }
+
+
+        #leftMenu {
+            width: 0;
+            background-color: #f8f9fa;
+            transition: width 0.3s ease-in-out;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        #leftMenu.w-64 {
+            width: 250px;
+        }
+
+
+        .right-panel {
+            background-color: #f8f9fa;
+            padding: 20px;
+            width: 300px;
+        }
+
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <button id="toggleMenu">☰</button>
+            <h1 style="margin-left: 20px;">My Website</h1>
+        </nav>
+
+        <div class="main-content">
+
+            <aside id="leftMenu">
+                <div>
+                    <h2>Menu</h2>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Services</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </aside>
+
+
+            <main style="flex: 1; padding: 20px;">
+                <div>
+                    <h2>Welcome to our website</h2>
+                    <p>This is the main content area. It's responsive and will adjust based on the screen size and menu
+                        state.</p>
+                    <p>The entire page will scale according to the viewport width:</p>
+                    <ul>
+                        <li>90% between 992px and 1600px</li>
+                        <li>80% between 700px and 767px</li>
+                        <li>75% between 600px and 700px</li>
+                        <li>50% below 600px</li>
+                    </ul>
+                </div>
+            </main>
+
+
+            <aside class="right-panel">
+                <h2>Right Panel</h2>
+                <div>
+                    <h3>Latest Updates</h3>
+                    <p>Check out our newest features...</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <p>Important resources...</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 My Website. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const app = document.getElementById("app");
+            const toggleMenuButton = document.getElementById("toggleMenu");
+            const leftMenu = document.getElementById("leftMenu");
+            handleResize();
+            toggleMenuButton.addEventListener("click", () => {
+                leftMenu.classList.toggle("w-0");
+                leftMenu.classList.toggle("w-64");
+            });
+            function handleResize() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+
+                let scale = 1;
+
+                if (width >= 992 && width <= 1600) {
+                    scale = 0.9;
+                } else if (width >= 700 && width <= 767) {
+                    scale = 0.8;
+                } else if (width >= 600 && width < 700) {
+                    scale = 0.75;
+                } else if (width <= 600) {
+                    scale = 0.5;
+                }
+
+                app.style.transform = `scale(${scale})`;
+                app.style.transformOrigin = "top left";
+
+                app.style.width = `${100 / scale}%`;
+                app.style.height = `${100 / scale}%`;
+
+                app.style.minHeight = `${height}px`;
+            }
+            window.addEventListener("resize", handleResize);
+        });
+    </script>
+</body>
+
+</html>
