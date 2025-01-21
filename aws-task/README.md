@@ -2,7 +2,7 @@
 
 This project demonstrates how to set up a simple calculator application using AWS Lambda, with the ability to perform basic arithmetic operations like addition, subtraction, multiplication, and division.
 
-## Tech Stack
+## Pre-requisites
 - **Frontend**: None (CLI-based interaction for now)
 - **Backend**: Python (AWS Lambda)
 - **Hosting**: AWS Lambda
@@ -13,7 +13,7 @@ This project demonstrates how to set up a simple calculator application using AW
 - Handles exceptions like division by zero
 - Returns a JSON response with the result of the operation
 
-## Prerequisites
+## Prerequisites/tech stack
 - AWS CLI configured on your local machine
 - IAM role (`s3lambda`) with permissions to execute Lambda functions
 - Python 3.9 (for Lambda runtime)
@@ -95,3 +95,31 @@ aws lambda invoke \
 - [Testing the Lambda function](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/test.png)
 - [Sample output](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/output.png)
 - [Updating the Lambda function](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-calculator/proof.png)
+
+---
+---
+# PDF Uploads to S3 with lambda functions
+This section demonstrates how to upload PDF files to an S3 bucket using a Lambda function.
+
+
+## Prerequisites
+1. AWS CLI configured on your local machine
+2. IAM role with permissions to execute Lambda functions and access S3
+3. Python 3.9 (for Lambda runtime)
+
+## Setup Instructions
+1. Clone the repo
+
+2. Run the Script
+To upload a PDF file to an S3 bucket, run the following command:
+```bash
+python pdf_uploads.py <file_path> <bucket_name>
+```
+Replace <file_path> with the path to your PDF file and <bucket_name> with the name of your S3 bucket.
+
+3. Check the S3 Bucket
+
+## Output
+- [Proof of PDF upload to S3](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-pdfupload/proof.png)
+- [Sample PDF file uploaded](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-pdfupload/uploaded.png)
+- [cmd aws creation](https://github.com/dk-a-dev/90-North-tasks/blob/main/aws-task/output-pdfupload/cmd.png)
