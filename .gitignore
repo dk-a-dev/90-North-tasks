@@ -1,3 +1,5 @@
 aws-task/venv
 aws-task/.env
 aws-task/Assignment_Tasks.docx.pdf
+chat_app/.envs/.local/.django
+chat_app/.envs/.local/.postgres
